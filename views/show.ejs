@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Show Product</title>
+        <link rel="stylesheet" href="/style2.css">
+    </head>
+    <body>
+    <div id="container">
+        <h1>Product Show Product</h1>
+        <h2>Product Name: </h2> <%= product.name %>
+        <br/>
+        <p>"<%=product.description; %>"</p>
+        <br/>
+        <img src="<%= product.img %>" />
+        <br/>
+        Price $<%= product.price %>
+        <br/>
+        <p>
+        <% if(product.isReadyToSell === true){ %>
+            <!-- PRODUCT IS READY TO Sell!
+            <br/> -->
+            SCHEDULE A SHOWING TODAY!
+        <% } else { %>
+            THIS ITEM HAS TO BE CUSTOM MADE!
+            <br/>
+            <!-- You need a referral from a <em>TESLA OWNER</em> to get on the <em>WAITLIST</em>! -->
+        <% } %>
+        </p>
+        <br/>
+        <h3>Quantity </h3> <%= product.qty %>
+        <P>
+            <% if (product.qty <= 0 ) { %>
+                THIS ITEM IS OUT OF STOCK
+            <% } else { %>
+                <form action="/products/<%= product.id %>/?_method=PATCH" method="POST">
+                    <input id="buy" type="submit" value="BUY"/>
+                </form>
+            <% } %> 
+        </P>
+        <br/>
+        <!-- <form action="/products/<%= product.id %>/?_method=PATCH" method="POST">
+            <input type="submit" value="BUY"/>
+        </form> -->
+        <h4>Created at: <%= product.createdAt %></h4>
+        <br/>
+    <button><a id="home" href="/products">Home</a></button>
+    </div>
+    </body>
+</html>

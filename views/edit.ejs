@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Edit Product</title>
+        <link rel="stylesheet" href="/style2.css">
+    </head>
+    <body>
+    <!-- <div id="container"> -->
+      <h1>Edit Products Page</h1>
+      <form action="/products/<%= product.id %>?_method=PUT" method="POST">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" value="<%= product.name %>"/>
+        <br/>
+        <label for="description">Description</label>
+        <input type="textarea" name="description" id="description" value="<%= product.description %>"/>
+        <br/>
+        <label for="img">Image</label>
+        <input type="text" name="img" id="img" value="<%= product.img %>"/>
+        <br/>
+        <label for="price">Price</label>
+        <input type="number" name="price" id="price" value="<%= product.price %>"/>
+        <br/>
+        <label for="qty">Quantity</label>
+        <input type="number" name="qty" id="qty" value="<%= product.qty %>"/>
+        <br/>
+        <label for="isReadyToSell">Product Ready To Sell</label>
+        <input type="checkbox" name="isReadyToSell" id="isReadyToSell" 
+            <% if (product.isReadyToSell) { %>
+                checked
+            <% } %>
+        /><br/>
+        <input type="submit" value="Update Product">
+      </form>
+      <button><a id="home" href="/products">Home</a></button>
+    <!-- </div> -->
+    </body>
+</html>

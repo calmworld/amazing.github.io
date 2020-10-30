@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+
+/* font-family: 'Krona One', sans-serif; */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+/* font-family: 'Noto Sans', sans-serif; */
+
+body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: black;
+    font-family: 'Noto Sans', sans-serif;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+}
+#container {
+    padding: 10%;
+}
+img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+  }
+.title {
+    font-family: 'Krona One', sans-serif;
+    padding-bottom: 10px;
+}
+a:link {
+    text-decoration: none;
+    color:white;
+}
+a:visited {
+    text-decoration: none;
+    color:white;
+}
+a:hover {
+    text-decoration: none;
+}
+a:active {
+    text-decoration: none;
+    color:white;
+}
+
+#create {
+    /* padding-top: 200%;
+    margin-top: 200%; */
+    border-radius: 50px;
+    color: black;
+}
+#update {
+    background-color: grey;
+}
+/* #delete {
+}
+#home {
+} */
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Portrait and Landscape */
+@media only screen 
+and (min-device-width: 375px) 
+and (max-device-width: 812px) 
+and (-webkit-min-device-pixel-ratio: 3) { 
+    body {
+        background-color: black;
+      }
+    #create {
+        width: 50%
+      }
+    /* h1 {
+        margin: 20px auto;
+      } */
+    /* li {
+        background-color: rgba(201, 62, 115, 0.331);
+      } */
+}
+/* Portrait and Landscape */
+@media screen 
+and (device-width: 360px) 
+and (device-height: 640px) 
+and (-webkit-device-pixel-ratio: 4) {
+    body {
+        background-image: url("https://wallpaperaccess.com/full/207789.jpg");
+        background-color: black;
+      }
+}

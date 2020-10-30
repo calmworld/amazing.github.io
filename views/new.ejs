@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Product Page</title>
+    <link rel="stylesheet" href="/style2.css">
+  </head>
+  <body>
+    <!-- <div id="container"> -->
+      <h1>Create a New Product</h1>
+      <form action="/products" , method="POST">
+        Name: 
+        <input type="text" name="name" />
+        <br/>
+        Description: 
+        <input type="textarea" name="description" />
+        <br/>
+        Image: 
+        <input type="text" name="img" />
+        <br/>
+        Price: 
+        <input type="number" name="price" id="price" />
+        <br/>
+        Quantity: 
+        <input type="number" name="qty" id="qty" />
+        <br/>
+        Ready To Sell:
+        <input type="checkbox" name="isReadyToSell" />
+        <br/>
+        <input type="submit" value="Create Product" />
+        <br/>
+      </form>
+      <br/>
+    <button><a id="home" href="/products">Home</a></button>
+    <!-- </div> -->
+  </body>
+</html>

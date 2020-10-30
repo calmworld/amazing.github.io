@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>AMAZING</title>
+    <link rel="stylesheet" href="/main.css" />
+    <script
+      src="https://kit.fontawesome.com/915d70251b.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="container">
+      <h1 class="title">AMAZING</h1>
+      <ul>
+        <% for(const product of products){ %>
+        <li>
+          Name:
+          <a href="/products/<%=product.id; %>"> <%=product.name %> </a>
+          <br/>
+          Price $<%=product.price %>
+          <br />
+          <img src="<%= product.img %>" />
+          <br/>
+          <!-- ADD LINK BUTTON Update/Edit HERE -->
+          <button id="update">
+            <a href="/productS/<%= product.id %>/edit">UPDATE</a>
+          </button>
+          <!--  ADD DELETE FORM HERE-->
+          <form action="/productS/<%= product.id %>?_method=DELETE" method="POST">
+            <input id="delete" type="submit" value="DELETE" />
+          </form>
+        </li>
+        <% } %>
+      </ul>
+      <br/>
+      <button><a id="create" href="/productS/new">Create a New Product</a></button>
+    </div>
+  </body>
+</html>
