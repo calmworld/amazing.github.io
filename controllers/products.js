@@ -21,6 +21,19 @@ const productSeed = require('../models/seed.js');
 //after app has been defined //use methodOverride.
 //We'll be adding a query parameter to our delete form named _method
 router.use(methodOverride('_method'));
+
+//=================
+// Authentication
+//=================
+const isAuthenticated = (req, res, next) => {
+    if (req.session.currentUser) {
+      return next()
+    } else {
+      res.redirect('/sessions/new')
+    }
+  }
+
+
 //===========================
 // ROUTS
 //===========================
@@ -45,9 +58,11 @@ router.get('/seed', (req, res) => {
 router.get('/', (req, res) => {
     Product.find((err, allProducts) => {
         console.log(allProducts)
-        res.render('index.ejs', {
+        console.log(req.session.currentUser)
+        res.render('products/index.ejs', {
             //gives all product data a var name
             products: allProducts,
+            currentUser: req.session.currentUser
         })
     })
 })
@@ -56,7 +71,8 @@ router.get('/', (req, res) => {
 // NEW rout
 //=================
 router.get('/new', (req, res) => {
-    res.render('new.ejs')
+    res.render('products/new.ejs', {currentUser: req.session.currentUser}
+    )
 })
 
 
@@ -94,10 +110,12 @@ router.patch('/:id', (req, res) => {
 // SHOW rout
 //=================
 router.get('/:id', (req, res) => {
+    console.log(req.session.currentUser)
     Product.findById(req.params.id, (err, foundProduct) => {
         console.log(foundProduct)
-        res.render('show.ejs', {
-            product: foundProduct
+        res.render('products/show.ejs', {
+            product: foundProduct,
+            currentUser: req.session.currentUser
         })
     })
 })
@@ -107,8 +125,9 @@ router.get('/:id', (req, res) => {
 //=================
 router.get('/:id/edit', (req, res) => {
     Product.findById(req.params.id, (err, foundProduct) => {
-        res.render('edit.ejs', {
+        res.render('products/edit.ejs', {
             product: foundProduct,
+            urrentUser: req.session.currentUser
         });
     })
 })
@@ -138,6 +157,19 @@ router.delete('/:id', (req, res) => {
         res.redirect('/products');
     })
 });
+
+//=================
+// DROP DB rout
+//=================
+router.get(
+    '/dropdatabase/cannotundo/areyoursure/reallysure/okthen',
+    (req, res) => {
+      Products.collection.drop()
+      res.send('You did it! You dropped the database!')
+    }
+  )
+
+
 
 
 module.exports = router

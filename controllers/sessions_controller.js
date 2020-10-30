@@ -11,9 +11,9 @@ sessions.get('/new', (req, res) => {
 
 
 sessions.post('/', (req, res) => {
-  User.findOne({ username: req.body.username }, (error, foundUser) => {
+  User.findOne({ username: req.body.username }, (err, foundUser) => {
     if (error) {
-      console.log(error)
+      console.log(err)
       res.send('There was an issue with the DB')
     } else if (!foundUser) {
       res.send('<a href="/">Sorry, no user found</a>')

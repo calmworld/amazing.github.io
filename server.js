@@ -2,17 +2,10 @@
 // Dependencies
 //===========================
 const express = require('express'); //include the express package
-const app = express();
 
 const mongoose = require('mongoose'); //include the mongoose package
 
 const session = require('express-session');
-
-
-//===========================
-// Port
-//===========================
-const port = process.env.PORT
 
 
 //==============================
@@ -22,30 +15,19 @@ const port = process.env.PORT
 
 //configure mongoose Promise: mongoose.Promise = global.Promise //Optional - may or may not get a warning in terminal about this
 //===============================
-const mongodbURI = process.env.MONGODBURI
-
 require('dotenv').config()
+
+const app = express();
 
 const db = mongoose.connection
 
+const port = process.env.PORT
 
+const mongodbURI = process.env.MONGODBURI
 
-//============================
-// Connect to Mongoose
-//============================
-mongoose.connect(mongodbURI, { 
-    useFindAndModify: false,
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-},
-() => {
-  console.log('the connection with mongod is established at', mongodbURI)
-}
-)
-
-//===========================
-// Middleware
-//===========================
+//==============================
+/// MIDDLEWARE
+//==============================
 app.use(express.json()); //allows us to recognize the incoming request as a JSON object.
 
 //body-parser
@@ -62,6 +44,20 @@ app.use(
       resave: false, // default more info: https://www.npmjs.com/package/express-session#resave
       saveUninitialized: false // default  more info: https://www.npmjs.com/package/express-session#resave
     })
+)
+
+
+//============================
+// DATABASE -- Connect to Mongoose
+//============================
+mongoose.connect(mongodbURI, { 
+    useFindAndModify: false,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+},
+() => {
+  console.log('the connection with mongod is established at', mongodbURI)
+}
 )
 
 //===========================
