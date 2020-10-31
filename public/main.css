@@ -8,11 +8,22 @@
 body {
     background-position: center;
     background-repeat: no-repeat;
-    background-color: black;
+    background-color: white;
     font-family: 'Noto Sans', sans-serif;
     text-align: center;
-    color: white;
+    color: black;
     text-shadow: 2px 2px 4px #000000;
+}
+.top-nav {
+    display: flex;
+    background-color: aqua;
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+    
 }
 #container {
     padding: 10%;
@@ -29,18 +40,18 @@ img {
 }
 a:link {
     text-decoration: none;
-    color:white;
+    color:black;
 }
 a:visited {
     text-decoration: none;
-    color:white;
+    color: #000000;
 }
 a:hover {
     text-decoration: none;
 }
 a:active {
     text-decoration: none;
-    color:white;
+    color: #000000;
 }
 
 #create {
@@ -73,12 +84,6 @@ and (-webkit-min-device-pixel-ratio: 3) {
     #create {
         width: 50%
       }
-    /* h1 {
-        margin: 20px auto;
-      } */
-    /* li {
-        background-color: rgba(201, 62, 115, 0.331);
-      } */
 }
 /* Portrait and Landscape */
 @media screen 
