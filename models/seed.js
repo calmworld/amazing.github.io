@@ -1,6 +1,6 @@
 productSeed = [
     {
-        "name": "Sony X900H 65 Inch TV: 4K Ultra HD Smart LED TV with HDR, Game Mode for Gaming, and Alexa Compatibility - 2020 Model",
+        "name": "Sony X900H 65 Inch TV: 4K Ultra HD Smart LED TV",
         "description": "All of your favorite content, displayed in rich and life-like 4K HDR. The X900H is engineered with picture quality in mind, complimented by Full Array LED, TRILUMINOS Display, and X-Tended Dynamic Range technologies contributing to an experience that accurately portrays everything you watch and play. Connect Alexa to your compatible Sony TV to stream smart camera feeds with your voice. You can also ask Alexa to play music, launch video apps, and more and see it all on your Sony TV.",
         "img": "https://images-na.ssl-images-amazon.com/images/I/613yHj0LKJL._AC_SL1200_.jpg",
         "price": 139999,

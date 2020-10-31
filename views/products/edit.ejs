@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <%- include ('../partials/nav.ejs') %>
+      <%- include ('../partials/secondary.ejs') %>
     </head>
     <body>
+      <nav>
+        <%- include ('../partials/nav.ejs') %>
+      </nav>
     <!-- <div id="container"> -->
       <h1>Edit Products Page</h1>
       <form action="/products/<%= product.id %>?_method=PUT" method="POST">

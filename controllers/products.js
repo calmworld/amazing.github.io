@@ -167,7 +167,7 @@ router.get(
       Products.collection.drop()
       res.send('You did it! You dropped the database!')
     }
-  )
+)
 
 
 

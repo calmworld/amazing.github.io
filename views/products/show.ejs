@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <%- include ('../partials/nav.ejs') %>
+        <%- include ('../partials/secondary.ejs') %>
     </head>
     <body>
-    <div id="container">
+        <nav>
+            <%- include ('../partials/nav.ejs') %>
+        </nav>
+        <div id="container">
         <h1>Product Show Product</h1>
         <h2>Product Name: </h2> <%= product.name %>
         <br/>
