@@ -57,8 +57,8 @@ router.get('/seed', (req, res) => {
 //=================
 router.get('/', (req, res) => {
     Product.find((err, allProducts) => {
-        console.log(allProducts)
-        console.log(req.session.currentUser)
+        //console.log(allProducts)
+        //console.log(req.session.currentUser)
         res.render('products/index.ejs', {
             //gives all product data a var name
             products: allProducts,
@@ -70,7 +70,7 @@ router.get('/', (req, res) => {
 //=================
 // NEW rout
 //=================
-router.get('/new', (req, res) => {
+router.get('/new', isAuthenticated, (req, res) => {
     res.render('products/new.ejs', {currentUser: req.session.currentUser}
     )
 })
@@ -79,7 +79,7 @@ router.get('/new', (req, res) => {
 //=================
 // POST/CREATE rout
 //=================
-router.post('/', (req, res) => {
+router.post('/', isAuthenticated, (req, res) => {
     //console.log(req.body)
     if(req.body.isReadyToSell === 'on'){ //if checked, req.body.isReadyToSell is set to 'on'
         req.body.isReadyToSell = true;
@@ -95,7 +95,7 @@ router.post('/', (req, res) => {
 // PATCH rout
 //=================
 router.patch('/:id', (req, res) => {
-    console.log("i am checking the price")
+    //console.log("i am checking the quantity")
     Product.findByIdAndUpdate(req.params.id, {$inc: {'qty': -1}}, (err) => {
         if (err) {
             console.log(err)
@@ -109,7 +109,7 @@ router.patch('/:id', (req, res) => {
 //=================
 // SHOW rout
 //=================
-router.get('/:id', (req, res) => {
+router.get('/:id', isAuthenticated, (req, res) => {
     console.log(req.session.currentUser)
     Product.findById(req.params.id, (err, foundProduct) => {
         console.log(foundProduct)
@@ -123,7 +123,7 @@ router.get('/:id', (req, res) => {
 //=================
 // EDIT rout
 //=================
-router.get('/:id/edit', (req, res) => {
+router.get('/:id/edit', isAuthenticated, (req, res) => {
     Product.findById(req.params.id, (err, foundProduct) => {
         res.render('products/edit.ejs', {
             product: foundProduct,
@@ -137,7 +137,7 @@ router.get('/:id/edit', (req, res) => {
 //=================
 // PUT/UPDATE rout
 //=================
-router.put('/:id', (req, res) => {
+router.put('/:id', isAuthenticated, (req, res) => {
     if (req.body.isReadyToSell === 'on') {
         req.body.isReadyToSell = true;
     } else {
@@ -152,7 +152,7 @@ router.put('/:id', (req, res) => {
 //=================
 // DELETE rout
 //=================
-router.delete('/:id', (req, res) => {
+router.delete('/:id', isAuthenticated, (req, res) => {
     Product.findByIdAndDelete(req.params.id, (err, deletedProduct) => {
         res.redirect('/products');
     })

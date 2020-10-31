@@ -31,7 +31,11 @@
         <% } %>
       </ul>
       <br/>
-      <button><a id="create" href="/productS/new">Create a New Product</a></button>
+      <ul>
+        <% if (currentUser) { %>
+        <button><a id="create" href="/productS/new">Create a New Product</a></button>
+        <% } %>
+    </ul>
     </div>
   </body>
 </html>

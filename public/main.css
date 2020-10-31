@@ -23,7 +23,7 @@ body {
 }
 .right {
     float: right;
-    
+    text-align: right;
 }
 #container {
     padding: 10%;
