@@ -33,7 +33,7 @@
             <% if (product.qty <= 0 ) { %>
                 THIS ITEM IS OUT OF STOCK
             <% } else { %>
-                <form action="/products/<%= product.id %>/?_method=PATCH" method="POST">
+                <form action="/users/<%= currentUser._id %>/products/<%= product.id %>?_method=PATCH" method="POST">
                     <input id="buy" type="submit" value="BUY / ADD TO CART"/>
                 </form>
             <% } %> 

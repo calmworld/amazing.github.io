@@ -129,9 +129,9 @@ router.patch('/:id', (req, res) => {
 // SHOW rout
 //=================
 router.get('/:id', isAuthenticated, (req, res) => {
-    console.log(req.session.currentUser)
+    //console.log(req.session.currentUser)
     Product.findById(req.params.id, (err, foundProduct) => {
-        console.log(foundProduct)
+        //console.log(foundProduct)
         res.render('products/show.ejs', {
             product: foundProduct,
             currentUser: req.session.currentUser

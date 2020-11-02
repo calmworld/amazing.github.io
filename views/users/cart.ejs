@@ -11,11 +11,12 @@
     </nav>
     <div id="container">
         <h3><%= currentUser.username %> SHOPPING CART</h3>
+        <br/>
         <% for(const item of products){ %>
             Name: <%= item.name %>
         <% } %>
 
-        <br />
+        <br/>
         <button><a id="home" href="/products">Home</a></button>
     </div>
 </body>
