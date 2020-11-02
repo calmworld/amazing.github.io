@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <%- include ('../partials/secondary.ejs') %>
+        <%- include ('../partials/head.ejs') %>
     </head>
     <body>
         <nav>
             <%- include ('../partials/nav.ejs') %>
         </nav>
         <div id="container">
-        <h1>Product Show Product</h1>
-        <h2>Product Name: </h2> <%= product.name %>
+        <h2>Product Show Product</h2>
+        <h3>Product Name: </h3> <%= product.name %>
         <br/>
         <p>"<%=product.description; %>"</p>
         <br/>
@@ -34,7 +34,7 @@
                 THIS ITEM IS OUT OF STOCK
             <% } else { %>
                 <form action="/products/<%= product.id %>/?_method=PATCH" method="POST">
-                    <input id="buy" type="submit" value="BUY"/>
+                    <input id="buy" type="submit" value="BUY / ADD TO CART"/>
                 </form>
             <% } %> 
         </P>
@@ -42,7 +42,7 @@
         <!-- <form action="/products/<%= product.id %>/?_method=PATCH" method="POST">
             <input type="submit" value="BUY"/>
         </form> -->
-        <h4>Created at: <%= product.createdAt %></h4>
+        <!-- <h4>Created at: <%= product.createdAt %></h4> -->
         <br/>
     <button><a id="home" href="/products">Home</a></button>
     </div>

@@ -20,20 +20,20 @@
           <img src="<%= product.img %>" />
           <br/>
           <!-- ADD LINK BUTTON Update/Edit HERE -->
-          <button id="update">
+          <!-- <button id="update">
             <a href="/productS/<%= product.id %>/edit">UPDATE</a>
-          </button>
+          </button> -->
           <!--  ADD DELETE FORM HERE-->
-          <form action="/productS/<%= product.id %>?_method=DELETE" method="POST">
+          <!-- <form action="/productS/<%= product.id %>?_method=DELETE" method="POST">
             <input id="delete" type="submit" value="DELETE" />
-          </form>
+          </form> -->
         </li>
         <% } %>
       </ul>
       <br/>
       <ul>
         <% if (currentUser) { %>
-        <button><a id="create" href="/productS/new">Create a New Product</a></button>
+        <button><a id="create" href="/products/new">Create a New Product</a></button>
         <% } %>
     </ul>
     </div>

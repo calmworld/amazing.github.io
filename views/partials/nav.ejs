@@ -1,6 +1,6 @@
 <!-- Update nav partials -->
 <ul class="left">
-    <a href="/products" class="navbar-brand">amazing <i class="fab fa-amazon"></i></a>
+    <a href="/products" class="navbar-brand"><h4>amazing <i class="fab fa-amazon"></i></h4></a>
 </ul>
 
 
@@ -11,10 +11,10 @@
         <!-- <li><a href="/products/new">Create a new Product</a></li> -->
         <li class="nav-item">
             <form action="/sessions?_method=DELETE" method="POST">
-            <input type="submit" value="Log Out" class="btn-small red" />
+            <input type="submit" value="Log Out" class="btn-small blue" />
             </form>
         </li>
-        <li class="nav-item"><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart</a></li>
+        <li class="nav-item"><a href="users/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart</a></li>
         <% } else { %>
         <li class="nav-item"><a href="/users/new">Sign Up</a></li>
         <li class="nav-item"><a href="/sessions/new">Log In</a></li>

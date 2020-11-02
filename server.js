@@ -85,8 +85,8 @@ app.use('/users', usersController)
 const sessionsController = require('./controllers/sessions_controller.js')
 app.use('/sessions', sessionsController)
 
-// const ordersController = require('./controllers/orders_controller.js')
-// app.use('/orders', ordersController)
+const ordersController = require('./controllers/orders_controller.js')
+app.use('/orders', ordersController)
 
 //===========================
 // Routes
@@ -96,11 +96,11 @@ app.get('/', (req, res) => {
     res.redirect('/products')
 })
 
-// 404 errors!
-// this will catch any route that doesn't exist
-app.get('*', (req, res) => {
-  res.render('./index.ejs')
-})
+// // 404 errors!
+// // this will catch any route that doesn't exist
+// app.get('*', (req, res) => {
+//   res.render('./index.ejs')
+// })
 
 //===========================
 // Listening

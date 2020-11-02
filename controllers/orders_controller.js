@@ -43,19 +43,20 @@ const isAuthenticated = (req, res, next) => {
 //=================
 // SHOW rout
 //=================
-orders.get('/:id', isAuthenticated, (req, res) => {
-    console.log(req.session.currentUser)
-    Product.findById(req.params.id, (err, foundProduct) => {
-        console.log(foundProduct)
-        res.render('products/show.ejs', {
-            product: foundProduct,
-            currentUser: req.session.currentUser
-        })
-    })
-})
+// orders.get('/:id', isAuthenticated, (req, res) => {
+//     console.log(req.session.currentUser)
+//     Product.findById(req.params.id, (err, foundProduct) => {
+//         console.log(foundProduct)
+//         res.render('users/cart.ejs', {
+//             product: foundProduct,
+//             currentUser: req.session.currentUser
+//         })
+//     })
+// })
+
 
 //===================================
-// orders.get('/:id', async (req, res) => {
+// orders.get('/:id', isAuthenticated, (req, res) => {
 //     try {
 //       const order = await Order.findById(req.params.id)
 //       res.render('./orders/show.ejs', { order: order })
@@ -65,3 +66,10 @@ orders.get('/:id', isAuthenticated, (req, res) => {
 // })
 
 //====================================
+
+
+
+//=================
+// EXPORTS
+//=================
+module.exports = orders
