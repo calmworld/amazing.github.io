@@ -1,50 +1,21 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <%- include ('../partials/head.ejs') %>
-    </head>
-    <body>
-        <nav>
-            <%- include ('../partials/nav.ejs') %>
-        </nav>
-        <div id="container">
-        <h2>USER SHOPPING CART</h2>
-        <h3>Product Name: </h3> <%= product.name %>
-        <br/>
-        <!-- <p>"<%=product.description; %>"</p> -->
-        <br/>
-        <img src="<%= product.img %>" />
-        <br/>
-        Price $<%= product.price %>
-        <br/>
-        <br/>
-        <h3>Quantity </h3> <%= product.qty %>
-        <ul>
-            <% for(const product of products){ %>
-            <li>
-            <!-- ADD LINK BUTTON Update/Edit HERE -->
-            <button id="update">
-                <a href="/products/<%= product.id %>/edit">UPDATE</a>
-            </button>
-            <!--  ADD DELETE FORM HERE-->
-            <form action="/products/<%= product.id %>?_method=DELETE" method="POST">
-                <input id="delete" type="submit" value="DELETE" />
-            </form>
 
-            <!-- add to Shopping Cart -->
-            <!-- <form action="users/<%= userId:/shoppingCart/:productId?_method=PATCH&operation=add %> /?_method=PATCH&operation=add" method="POST">
-                <input id="add" type="submit" value="Add to Cart"/>
-            </form> -->
-            </li>
-            <% } %>
-        </ul>
-        <br/>
-        <!-- <form action="/products/<%= product.id %>/?_method=PATCH" method="POST">
-            <input type="submit" value="BUY"/>
-        </form> -->
-        <h4>Created at: <%= product.createdAt %></h4>
-        <br/>
-    <button><a id="home" href="/products">Home</a></button>
+<head>
+    <%- include ('../partials/head.ejs') %>
+</head>
+
+<body>
+    <nav>
+        <%- include ('../partials/nav.ejs') %>
+    </nav>
+    <div id="container">
+        <h2>USER SHOPPING CART</h2>
+        
+        
+        <br />
+        <button><a id="home" href="/products">Home</a></button>
     </div>
-    </body>
+</body>
+
 </html>

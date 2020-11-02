@@ -5,9 +5,12 @@ const bcrypt = require('bcrypt');
 const express = require('express')
 const sessions = express.Router();
 
+const methodOverride = require('method-override'); //include the method-override package
+sessions.use(methodOverride('_method'));
 //=================
 // Models
 //=================
+
 const User = require('../models/users.js');
 
 
@@ -41,6 +44,7 @@ sessions.post('/', (req, res) => {
 })
 
 sessions.delete('/', (req, res) => {
+  console.log(req.session)
   req.session.destroy(() => {
     res.redirect('/')
   })

@@ -37,24 +37,46 @@ users.post('/', (req, res) => {
   });
 });
 
+
+
+//=================
+// USER CART rout
+//=================
+users.get('/cart', (req, res) => {
+  console.log(req.session.currentUser)
+  User.find({username: req.session.username}, (err, user) => {
+    //console.log(user)
+    res.render('users/cart.ejs', { currentUser: req.session.currentUser, products: req.session.currentUser.shoppingCart})
+  })
+});
+
+
 //=================
 // PATCH ORDER rout
 //=================
 // users.patch('users/:userId:/shoppingCart/:productId?_method=PATCH&operation=add
 
-users.patch('users/:userId:/shoppingCart/:productId?_method=PATCH&operation=add', (req, res) => {
+users.patch('users/:userId/shoppingCart/:productId?_method=PATCH&operation=add', (req, res) => {
   //console.log("i am checking the cart")
   User.shoppingCart.update(
     { _id: req.sessions.id }, 
-    { $push: { products: product } },
-  )
-  Product.findById(req.params.id, (err, foundProduct) => {
-    console.log(foundProduct)
-    res.render('users/cart.ejs', {
-      product: foundProduct,
-      currentUser: req.session.currentUser
-      })
-  })
+    //{ $push: { products: product } },
+    { $push: { products: {
+      _id: req.params.productId,
+      quantity: quantity,
+      name: product.name,
+      price: product.price
+    } 
+  }
+})
+  // Product.findById(req.params.id, (err, foundProduct) => {
+  //   console.log(foundProduct)
+  //   res.render('users/cart.ejs', {
+  //     product: foundProduct,
+  //     currentUser: req.session.currentUser
+  //     })
+  //   res.redirect('users/cart.ejs')
+  // })
 });
 
 
