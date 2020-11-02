@@ -10,9 +10,11 @@
         <%- include ('../partials/nav.ejs') %>
     </nav>
     <div id="container">
-        <h2>USER SHOPPING CART</h2>
-        
-        
+        <h3><%= currentUser.username %> SHOPPING CART</h3>
+        <% for(const item of products){ %>
+            Name: <%= item.name %>
+        <% } %>
+
         <br />
         <button><a id="home" href="/products">Home</a></button>
     </div>
