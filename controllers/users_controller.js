@@ -55,12 +55,13 @@ users.get('/cart', (req, res) => {
 //=================
 // PATCH ORDER rout
 //=================
-// users.patch('users/:userId:/shoppingCart/:productId?_method=PATCH&operation=add
-
 users.patch('/:userId/products/:productId', (req, res) => {
-  console.log("i am checking the cart")
-  User.findByIdAndUpdate(req.params.userId, { 
-    $push: { products: req.params.productId }
+  console.log(req.params.productId)
+  // User.findByIdAndUpdate(req.params.userId, { 
+  //   $push: { "shoppingCart": req.params.productId }
+  // })
+  User.findById(req.params.userId, (error, user) => {
+    user.shoppingCart.push(req.params.productId)
   })
   res.redirect('/users/cart')
 })
@@ -70,3 +71,6 @@ users.patch('/:userId/products/:productId', (req, res) => {
 // EXPORTS
 //=================
 module.exports = users;
+
+
+
