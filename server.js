@@ -9,7 +9,7 @@ const session = require('express-session');
 
 const morgan = require('morgan');
 
-const token = require('jsonwebtoken')
+const jwt = require('jsonwebtoken')
 //==============================
 // Global Configuration
 //==============================
@@ -85,8 +85,8 @@ app.use('/users', usersController)
 const sessionsController = require('./controllers/sessions_controller.js')
 app.use('/sessions', sessionsController)
 
-const ordersController = require('./controllers/orders_controller.js')
-app.use('/orders', ordersController)
+// const ordersController = require('./controllers/orders_controller.js')
+// app.use('/orders', ordersController)
 
 //===========================
 // Routes
