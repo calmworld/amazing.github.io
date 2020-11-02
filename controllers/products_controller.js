@@ -31,7 +31,7 @@ const isAuthenticated = (req, res, next) => {
     } else {
       res.redirect('/sessions/new')
     }
-  }
+}
 
 
 //===========================
@@ -45,7 +45,7 @@ router.get('/seed', (req, res) => {
     Product.remove(() => {
         Product.create(productSeed, (err, data) => {
             if (err) console.log(err.message);
-            console.log('added provided car data')
+            console.log('added provided seed data')
             res.redirect('/products/');
         })
     })

@@ -7,7 +7,9 @@ const mongoose = require('mongoose'); //include the mongoose package
 
 const session = require('express-session');
 
+const morgan = require('morgan');
 
+const token = require('jsonwebtoken')
 //==============================
 // Global Configuration
 //==============================
@@ -37,7 +39,7 @@ app.use(express.urlencoded({extended: true})); //recognize the incoming object a
 //tells express to try to match requests with files in the directory called 'public' for CSS purposes
 app.use(express.static(__dirname + '/public')); 
 
-
+// use session
 app.use(
     session({
       secret: process.env.SECRET, //a random string do not copy this value or your stuff will get hacked
@@ -46,6 +48,8 @@ app.use(
     })
 )
 
+// use morgan
+app.use(morgan('dev'))
 
 //============================
 // DATABASE -- Connect to Mongoose
@@ -72,7 +76,7 @@ db.on('disconnected', () => console.log('mongo disconnected'))
 //===========================
 // Controllers
 //===========================
-const productsController = require('./controllers/products.js'); //require controllers/routs from products.js
+const productsController = require('./controllers/products_controller.js'); //require controllers/routs from products.js
 app.use('/products', productsController); //use routs/controllers from products.js
 
 const usersController = require('./controllers/users_controller.js')
@@ -81,13 +85,23 @@ app.use('/users', usersController)
 const sessionsController = require('./controllers/sessions_controller.js')
 app.use('/sessions', sessionsController)
 
+const ordersController = require('./controllers/orders_controller.js')
+app.use('/orders', ordersController)
 
 //===========================
 // Routes
 //===========================
+// localhost:3000  - this will reroute to `products
 app.get('/', (req, res) => {
     res.redirect('/products')
-  })
+})
+
+// 404 errors!
+// this will catch any route that doesn't exist
+app.get('*', (req, res) => {
+  res.render('./index.ejs')
+})
+
 //===========================
 // Listening
 //===========================

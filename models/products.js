@@ -18,7 +18,7 @@ const productSchema = new Schema({
     price: Number,
     qty: Number,
     isReadyToSell: { type: Boolean, default: false }
-}, { timestamps: true });
+})
 
 
 //================================================

@@ -1,8 +1,20 @@
+
+//===========================
+// DEPENDENCIES
+//===========================
 const bcrypt = require('bcrypt');
 const express = require('express');
 const users = express.Router();
+
+//=================
+// Models
+//=================
 const User = require('../models/users.js');
 
+
+//===========================
+// ROUTS
+//===========================
 users.get('/new', (req, res) => {
   res.render('users/new.ejs', {
     currentUser: req.session.currentUser
