@@ -12,7 +12,7 @@ body {
     font-family: 'Noto Sans', sans-serif;
     text-align: center;
     color: black;
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: 2px 2px 4px #ffffff;
 }
 .row {
     display: flex;
