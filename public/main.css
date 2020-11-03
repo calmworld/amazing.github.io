@@ -14,8 +14,15 @@ body {
     color: black;
     text-shadow: 2px 2px 4px #ffffff;
 }
+#container {
+    padding: 10%;
+    max-width: 1335px;
+    margin: 0 auto;
+}
 .row {
     display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
 }
 .left {
     float: left;
@@ -24,15 +31,21 @@ body {
     float: right;
     text-align: right;
 }
-#container {
-    padding: 10%;
-}
 img {
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 5px;
     width: 150px;
-  }
+}
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+.card-panel {
+    flex: 1 46%;
+    flex-wrap: wrap;
+    position: relative;
+}
 .title {
     font-family: 'Krona One', sans-serif;
     padding-bottom: 10px;
