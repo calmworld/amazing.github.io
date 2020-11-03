@@ -14,9 +14,8 @@ body {
     color: black;
     text-shadow: 2px 2px 4px #000000;
 }
-.top-nav {
+.row {
     display: flex;
-    background-color: aqua;
 }
 .left {
     float: left;

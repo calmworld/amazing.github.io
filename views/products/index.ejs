@@ -1,43 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <%- include ('../partials/head.ejs') %>
-  </head>
-  <body>
-    <nav>
-      <%- include ('../partials/nav.ejs') %>
-    </nav>
-    <div id="container">
-      <!-- <h1 class="title">AMAZING</h1> -->
-      <div class="row">
-        <div class="col s12 m6">
-          <div class="card yellow darken-1">
-            <div class="card-content white-text">
-              <ul>
-                <% for(const product of products){ %>
-                <li>
-                  <span class="card-title">Name:</span>
-                  
-                  <a class="card-action" href="/products/<%=product.id; %>"> <%=product.name %> </a>
-                  <br/>
-                  Price $<%=product.price %>
-                  <br />
-                  <img src="<%= product.img %>" />
-                  <br/>
-                  
-                </li>
-                <% } %>
-              </ul>
-            </div>
-          </div>
+
+<head>
+  <%- include ('../partials/head.ejs') %>
+</head>
+
+<body>
+  <nav>
+    <%- include ('../partials/nav.ejs') %>
+  </nav>
+  <div id="container">
+    <!-- <h1 class="title">AMAZING</h1> -->
+    <ul class="row">
+      <% for(const product of products){ %>
+      <li class="grid col s12 m4 l2">
+        <div class="card-panel">
+          Name:
+          <a href="/products/<%=product.id; %>"> <%=product.name %> </a>
+          <br class="divider"/>
+          Price $<%=product.price %>
+          <br class="divider"/>
+          <img src="<%= product.img %>" />
+          <br class="divider"/>
         </div>
-      </div>
-      <br/>
-      <ul>
-        <% if (currentUser) { %>
-        <button><a id="create" href="/products/new">Create a New Product</a></button>
-        <% } %>
+      </li>
+      <% } %>
     </ul>
-    </div>
-  </body>
+    <br class="divider"/>
+    <ul>
+      <% if (currentUser) { %>
+      <button><a id="create" href="/products/new">Create a New Product</a></button>
+      <% } %>
+    </ul>
+  </div>
+</body>
+
 </html>
