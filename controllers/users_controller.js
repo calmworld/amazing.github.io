@@ -11,6 +11,8 @@ const users = express.Router();
 //=================
 const User = require('../models/users.js');
 
+const Product = require('../models/products.js');
+
 const methodOverride = require('method-override'); //include the method-override package
 users.use(methodOverride('_method'));
 //===========================
@@ -56,15 +58,21 @@ users.get('/cart', (req, res) => {
 // PATCH ORDER rout
 //=================
 users.patch('/:userId/products/:productId', (req, res) => {
-  console.log(req.params.productId)
-  // User.findByIdAndUpdate(req.params.userId, { 
-  //   $push: { "shoppingCart": req.params.productId }
-  // })
-  User.findById(req.params.userId, (error, user) => {
+  User.findByIdAndUpdate(req.params.userId, (error, user) => {
     user.shoppingCart.push(req.params.productId)
+    user.save()
   })
-  res.redirect('/users/cart')
+  Product.findByIdAndUpdate(req.params.productId, {$inc: {'qty': -1}}, (err) => {
+    if (err) {
+        console.log(err)
+    } else {
+        res.redirect(`/products/${req.params.productId}`)
+    }
 })
+  // res.redirect('/users/cart')
+})
+//========
+
 
 
 //=================
