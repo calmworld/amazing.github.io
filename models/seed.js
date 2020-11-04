@@ -8,6 +8,30 @@ productSeed = [
         "isReadyToSell": true
     },
     {
+        "name": "Zero One",
+        "description": "Handmade. Materials: Cotton, Ink, Tender Love",
+        "img": "https://i.etsystatic.com/16068647/r/il/8dc07c/2457508541/il_1140xN.2457508541_ltlf.jpg",
+        "price": 30.29,
+        "qty": 27,
+        "isReadyToSell": true
+    },
+    {
+        "name": "Never Forget",
+        "description": "Handmade. Materials: Cotton, Ink, Tender Love",
+        "img": "https://i.etsystatic.com/25279865/r/il/f968af/2663182479/il_1140xN.2663182479_pd41.jpg",
+        "price": 30.29,
+        "qty": 27,
+        "isReadyToSell": true
+    },
+    {
+        "name": "Tabs or Spaces",
+        "description": "Handmade. Materials: Cotton, Ink, Tender Love",
+        "img": "https://i.etsystatic.com/16068647/r/il/d40071/2409383182/il_1140xN.2409383182_1g4o.jpg",
+        "price": 30.29,
+        "qty": 27,
+        "isReadyToSell": true
+    },
+    {
         "name": "Development Process",
         "description": "Handmade. Materials: Cotton, Ink, Tender Love",
         "img": "https://i.etsystatic.com/22367738/r/il/f7d77c/2402608591/il_1140xN.2402608591_sky5.jpg",
@@ -58,7 +82,7 @@ productSeed = [
     {
         "name": "Code Blooded",
         "description": "Handmade. Materials: Cotton, Ink, Tender Love",
-        "img": "https://i.etsystatic.com/9196086/r/il/614376/1616420809/il_1588xN.1616420809_nbyq.jpg",
+        "img": "https://i.etsystatic.com/20383272/r/il/7a30e3/2627046594/il_1140xN.2627046594_efi1.jpg",
         "price": 64.99,
         "qty": 55,
         "isReadyToSell": true
@@ -72,9 +96,9 @@ productSeed = [
         "isReadyToSell": true
     },
     {
-        "name": "Riding a Bike",
+        "name": "HTML Tag",
         "description": "Handmade. Materials: Cotton, Ink, Tender Love",
-        "img": "https://i.etsystatic.com/22367738/r/il/0714a7/2219231714/il_1140xN.2219231714_qpx8.jpg",
+        "img": "https://i.etsystatic.com/17317941/r/il/f3e6cb/1899217790/il_1140xN.1899217790_1kqb.jpg",
         "price": 42.29,
         "qty": 58,
         "isReadyToSell": true

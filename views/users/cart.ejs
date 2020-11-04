@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <%- include ('../partials/head.ejs') %>
+    <%- include ('../partials/head2.ejs') %>
 </head>
 
 <body>
@@ -10,12 +10,23 @@
         <%- include ('../partials/nav.ejs') %>
     </nav>
     <div id="container">
-        <h3><%= currentUser.username %> SHOPPING CART</h3>
+        <h4><%= currentUser.username %> SHOPPING CART</h4>
         <br/>
-        <% for(const item of products){ %>
-            Name: <%= item.name %>
-        <% } %>
+        <ul>
+            <% for(const product of products){ %>
+                <% user.ShoppingCart.products.Push(productID) %>
 
+                <% if (ShoppingCart.products.length > 0) { %>
+                    <% ShoppingCart.products.forEach(product => { %>
+                        <li>
+                            <h1><%= product.productID.name %></h1>
+                            <h2>Quantity: <%= product.qty %></h2>
+                        </li>
+                    <% }) %>
+                <% } %> 
+            <% } %> 
+            
+        </ul>
         <br/>
         <button><a id="home" href="/products">Home</a></button>
     </div>

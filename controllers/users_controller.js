@@ -58,7 +58,7 @@ users.get('/cart', (req, res) => {
 // PATCH ORDER rout
 //=================
 users.patch('/:userId/products/:productId', (req, res) => {
-  User.findByIdAndUpdate(req.params.userId, (error, user) => {
+  User.findByIdAndUpdate(req.params.userId, (err, user) => {
     user.shoppingCart.push(req.params.productId)
     user.save()
   })
