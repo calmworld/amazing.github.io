@@ -37,12 +37,14 @@ img {
     padding: 5px;
     width: 150px;
 }
-.grid {
+.col {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    flex-flow: row wrap;
+    justify-content: flex-start;
 }
 .card-panel {
-    flex: 1 46%;
+    flex: 2 46%;
     flex-wrap: wrap;
     position: relative;
 }
