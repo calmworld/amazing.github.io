@@ -10,7 +10,7 @@ productSeed = [
     {
         "name": "Development Process",
         "description": "Handmade. Materials: Cotton, Ink, Tender Love",
-        "img": "https://i.etsystatic.com/22367738/r/il/57ba67/2402909535/il_1588xN.2402909535_2ntn.jpg",
+        "img": "https://i.etsystatic.com/22367738/r/il/f7d77c/2402608591/il_1140xN.2402608591_sky5.jpg",
         "price": 25.99,
         "qty": 20,
         "isReadyToSell": true
