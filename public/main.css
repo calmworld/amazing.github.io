@@ -46,10 +46,10 @@ img {
     flex-wrap: wrap;
     position: relative;
 }
-.title {
+/* .title {
     font-family: 'Krona One', sans-serif;
     padding-bottom: 10px;
-}
+} */
 a:link {
     text-decoration: none;
     color:black;
@@ -75,10 +75,6 @@ a:active {
 #update {
     background-color: grey;
 }
-/* #delete {
-}
-#home {
-} */
 ul {
     list-style: none;
     margin: 0;
