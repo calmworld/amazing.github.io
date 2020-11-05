@@ -53,7 +53,7 @@ users.get('/cart', (req, res, next) => {
     //  let userCart = []
     let shoppingCart = req.session.currentUser.shoppingCart
     for (let i = 0; i < shoppingCart.length; i++) {
-      console.log("test")
+      console.log("testing user cart rout")
        let item = Product.findById(shoppingCart[i], (err, item) => {
         console.log(userCart)
         })
@@ -75,6 +75,15 @@ users.get('/cart', (req, res, next) => {
 //=================
 users.patch('/:userId/products/:productId', (req, res) => {
   User.findByIdAndUpdate(req.params.userId, {productId: req.params.productId}, (err, user) => {
+    Product.findById(req.params.productId, (err, item) => {
+      console.log('testing Patch rout')
+      //console.log(item)
+      // userCart.push(item)
+      // userCart.save()
+      user.shoppingCart.push(req.params.productId)
+      user.save()
+      //console.log(user)
+    })
   })
   Product.findByIdAndUpdate(req.params.productId, {$inc: {'qty': -1}}, (err) => {
     if (err) {
@@ -82,6 +91,7 @@ users.patch('/:userId/products/:productId', (req, res) => {
     } else {
         res.redirect(`/products/${req.params.productId}`)
     }
+    // res.redirect('/users/cart')
   })
 })
 
