@@ -54,39 +54,27 @@ users.get('/cart', (req, res, next) => {
     let shoppingCart = req.session.currentUser.shoppingCart
     for (let i = 0; i < shoppingCart.length; i++) {
       console.log("test")
-        Product.findById(shoppingCart[i], (err, item) => {
-          //  console.log(item)
-          userCart.push(item)
-           console.log(userCart)
-          return userCart
+       let item = Product.findById(shoppingCart[i], (err, item) => {
+        console.log(userCart)
         })
-        //  return userCart
-        //  console.log(userCart)
+        userCart.push(item)
     }
-    // res.render('users/cart.ejs', { currentUser: req.session.currentUser, userCart: userCart, products: Product.find()})
- })
- res.render('users/cart.ejs', { currentUser: req.session.currentUser, userCart: userCart, products: Product.find()})
+    let allItems = Promise.all(userCart).then(items => {
+      console.log(items)
+      res.render('users/cart.ejs', { currentUser: req.session.currentUser, userCart: items, products: Product.find()})
+    })
+    console.log(allItems)
+
+  })
 });
 
 
 
 //=================
-// PATCH Cart rout
+// PATCH /cart rout
 //=================
 users.patch('/:userId/products/:productId', (req, res) => {
   User.findByIdAndUpdate(req.params.userId, {productId: req.params.productId}, (err, user) => {
-    //console.log("hello")
-    // console.log(user)
-    //user.shoppingCart.push(req.params.productId)
-    //user.save()
-    //console.log(user)
-    // Product.findById(req.params.productId, (err, item) => {
-    //   //console.log('test')
-    //   //console.log(product)
-    //   userCart.push(item)
-    //   userCart.save()
-    //   //console.log(user)
-    // })
   })
   Product.findByIdAndUpdate(req.params.productId, {$inc: {'qty': -1}}, (err) => {
     if (err) {
@@ -94,13 +82,19 @@ users.patch('/:userId/products/:productId', (req, res) => {
     } else {
         res.redirect(`/products/${req.params.productId}`)
     }
+  })
 })
-  // res.redirect('/users/cart')
-})
 
 
 
-
+//=================
+// DELETE /cart rout
+//=================
+// users.delete('/cart/:id', (req, res) => {
+//   User.findByIdAndUpdate(req.params.id, (err, deletedItem) => {
+//       res.redirect('/users/cart');
+//   })
+// });
 
 
 //=================

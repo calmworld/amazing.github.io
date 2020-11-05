@@ -66,25 +66,7 @@ router.get('/', (req, res) => {
         })
     })
 })
-//==========
-// router.get('/', (req, res) => {
-//     Product.find((err, allProducts) => {
-//         //console.log(allProducts)
-//         //console.log(req.session.currentUser)
-//         let shoppingCart = [];
-//         let cartSize = 3;
-//         for (let i = 0; i < allProducts.length; i += cartSize) {
-//             shoppingCart.push(allProducts.slice(i, i + cartSize));
-//         }
-//         res.render('products/index.ejs', 
-//         {title: 'Shopping Cart', products: cartSize}, 
-//         {
-//             //gives all product data a var name
-//             products: allProducts,
-//             currentUser: req.session.currentUser
-//         })
-//     })
-// })
+
 
 //=================
 // NEW rout
