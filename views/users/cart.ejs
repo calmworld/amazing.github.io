@@ -16,11 +16,18 @@
             <% for(const item of userCart){ %>
                 <li><h5>Product: <%= item.name %></h5></li>
                 <li><h5>$<%= item.price %></h5></li>
+                <li><h5>QTY:<%= item.qty %></h5></li>
                 <li>
                 <!-- ADD Update/Edit HERE -->
                     <button id="update">
-                        <a href="/users/userCart/<%= item.id %>/edit">UPDATE</a>
+                        <a href="/users/cart/<%= item.id %>/edit">UPDATE</a>
                     </button>
+                </li>
+                <li>
+                <!--  ADD DELETE FORM HERE-->
+                    <form action="/users/cart/<%= item.id %>?_method=DELETE" method="POST">
+                        <input id="delete" type="submit" value="DELETE" />
+                    </form>
                 </li>
             <% } %> 
         </ul>

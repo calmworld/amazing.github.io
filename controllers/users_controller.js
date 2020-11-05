@@ -5,6 +5,8 @@
 const bcrypt = require('bcrypt');
 const express = require('express');
 const users = express.Router();
+const methodOverride = require('method-override');
+
 
 //=================
 // Models
@@ -13,8 +15,25 @@ const User = require('../models/users.js');
 
 const Product = require('../models/products.js');
 
-const methodOverride = require('method-override'); //include the method-override package
+//=================
+// MIDDLEWARE
+//=================
 users.use(methodOverride('_method'));
+
+
+//=================
+// Authentication
+//=================
+// const isAuthenticated = (req, res, next) => {
+//   if (req.session.currentUser) {
+//     return next()
+//   } else {
+//     res.redirect('/sessions/new')
+//   }
+// }
+
+
+
 //===========================
 // ROUTS
 //===========================
@@ -89,12 +108,14 @@ users.patch('/:userId/products/:productId', (req, res) => {
   })
 })
 
+
+
 //=================
 // EDIT /cart rout
 //=================
-// users.get('/:id/edit', isAuthenticated, (req, res) => {
+// users.get('/cart/:userId/edit', isAuthenticated, (req, res) => {
 //   Product.findById(req.params.id, (err, foundProduct) => {
-//       res.render('products/edit.ejs', {
+//       res.render('items/edit.ejs', {
 //           product: foundProduct,
 //           urrentUser: req.session.currentUser
 //       });
@@ -102,14 +123,37 @@ users.patch('/:userId/products/:productId', (req, res) => {
 // })
 
 
+
+//=================
+// PUT/UPDATE rout
+//=================
+// users.put('/cart/:userId', isAuthenticated, (req, res) => {
+//   if (req.body.isReadyToSell === 'on') {
+//       req.body.isReadyToSell = true;
+//   } else {
+//       req.body.isReadyToSell = false;
+//   }
+//   Product.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedProduct) => {
+//   res.redirect('/products');
+//   });
+// });
+
+
+
+
 //=================
 // DELETE /cart rout
 //=================
-// users.delete('/cart/:userId', (req, res) => {
-//   User.findByIdAndUpdate(req.params.id, (err, deletedItem) => {
-//       res.redirect('/users/cart');
-//   })
-// });
+users.delete('/cart/:productId', (req, res) => {
+  console.log(req.params.productId)
+  userId = req.session.currentUser
+  User.findByIdAndUpdate(userId, { $pull: {shoppingCart: {"_id":req.params.productId} } })
+  .then(updatedCart => {
+    //console.log(updatedCart)
+      res.redirect('/users/cart');
+  })
+  .catch(err => console.log(err))
+});
 
 
 //=================
