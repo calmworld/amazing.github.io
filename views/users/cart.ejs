@@ -10,22 +10,14 @@
         <%- include ('../partials/nav.ejs') %>
     </nav>
     <div id="container">
-        <h4><%= currentUser.username %> SHOPPING CART</h4>
+        <h4><%= currentUser.username %>'s Shopping Cart</h4>
         <br/>
         <ul>
-            <% for(const product of products){ %>
-                <% user.ShoppingCart.products.Push(productID) %>
-
-                <% if (ShoppingCart.products.length > 0) { %>
-                    <% ShoppingCart.products.forEach(product => { %>
+            <% for(const productId of currentUser.shoppingCart){ %>
                         <li>
-                            <h1><%= product.productID.name %></h1>
-                            <h2>Quantity: <%= product.qty %></h2>
+                            <h5><%= productId %></h5>
                         </li>
-                    <% }) %>
-                <% } %> 
             <% } %> 
-            
         </ul>
         <br/>
         <button><a id="home" href="/products">Home</a></button>

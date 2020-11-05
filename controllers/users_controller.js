@@ -45,11 +45,21 @@ users.post('/', (req, res) => {
 //=================
 // USER CART rout
 //=================
-users.get('/cart', (req, res) => {
-  console.log(req.session.currentUser)
-  User.find({username: req.session.username}, (err, user) => {
+users.get('/cart', (req, res, next) => {
+  //console.log(req.session.currentUser)
+  User.find().populate('products').exec({username: req.session.username}, (err, user) => {
     //console.log(user)
-    res.render('users/cart.ejs', { currentUser: req.session.currentUser, products: req.session.currentUser.shoppingCart})
+    let userCart = []
+    let shoppingCart = req.session.currentUser.shoppingCart
+    for (let i = 0; i < shoppingCart.length; i++) {
+      console.log("test")
+        Product.findById(shoppingCart[i], (err, item) => {
+          console.log(item)
+          userCart.push(item)
+        })
+        console.log(userCart)
+    }
+    res.render('users/cart.ejs', { currentUser: req.session.currentUser, userCart: userCart, products: Product.find()})
   })
 });
 
@@ -58,9 +68,19 @@ users.get('/cart', (req, res) => {
 // PATCH ORDER rout
 //=================
 users.patch('/:userId/products/:productId', (req, res) => {
-  User.findByIdAndUpdate(req.params.userId, (err, user) => {
-    user.shoppingCart.push(req.params.productId)
-    user.save()
+  User.findByIdAndUpdate(req.params.userId, {productId: req.params.productId}, (err, user) => {
+    //console.log("hello")
+    // console.log(user)
+    //user.shoppingCart.push(req.params.productId)
+    //user.save()
+    //console.log(user)
+    Product.findById(req.params.productId, (err, product) => {
+      //console.log('test')
+      //console.log(product)
+      user.shoppingCart.push(product)
+      user.save()
+      //console.log(user)
+    })
   })
   Product.findByIdAndUpdate(req.params.productId, {$inc: {'qty': -1}}, (err) => {
     if (err) {
@@ -72,7 +92,6 @@ users.patch('/:userId/products/:productId', (req, res) => {
   // res.redirect('/users/cart')
 })
 //========
-
 
 
 //=================

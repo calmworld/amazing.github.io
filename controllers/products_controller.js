@@ -131,7 +131,7 @@ router.patch('/:id', (req, res) => {
 router.get('/:id', isAuthenticated, (req, res) => {
     //console.log(req.session.currentUser)
     Product.findById(req.params.id, (err, foundProduct) => {
-        //console.log(foundProduct)
+        //console.log(req.session.currentUser.shoppingCart)
         res.render('products/show.ejs', {
             product: foundProduct,
             currentUser: req.session.currentUser
