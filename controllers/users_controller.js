@@ -46,26 +46,28 @@ users.post('/', (req, res) => {
 // USER CART rout
 //=================
 users.get('/cart', (req, res, next) => {
-  //console.log(req.session.currentUser)
+  //  console.log(req.session.currentUser)
   let userCart = []
   User.find().populate('products').exec({username: req.session.username}, (err, user) => {
-    //console.log(user)
-    // let userCart = []
+    //  console.log(user)
+    //  let userCart = []
     let shoppingCart = req.session.currentUser.shoppingCart
     for (let i = 0; i < shoppingCart.length; i++) {
       console.log("test")
         Product.findById(shoppingCart[i], (err, item) => {
-          //console.log(item)
+          //  console.log(item)
           userCart.push(item)
-          console.log(userCart)
+           console.log(userCart)
           return userCart
         })
-        // console.log(userCart)
+        //  return userCart
+        //  console.log(userCart)
     }
-  //   res.render('users/cart.ejs', { currentUser: req.session.currentUser, userCart: userCart, products: Product.find()})
+    // res.render('users/cart.ejs', { currentUser: req.session.currentUser, userCart: userCart, products: Product.find()})
  })
  res.render('users/cart.ejs', { currentUser: req.session.currentUser, userCart: userCart, products: Product.find()})
 });
+
 
 
 //=================
@@ -95,13 +97,13 @@ users.patch('/:userId/products/:productId', (req, res) => {
 })
   // res.redirect('/users/cart')
 })
-//========
+
+
+
+
 
 
 //=================
 // EXPORTS
 //=================
 module.exports = users;
-
-
-

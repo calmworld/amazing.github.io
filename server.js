@@ -85,9 +85,6 @@ app.use('/users', usersController)
 const sessionsController = require('./controllers/sessions_controller.js')
 app.use('/sessions', sessionsController)
 
-const ordersController = require('./controllers/orders_controller.js')
-app.use('/orders', ordersController)
-
 //===========================
 // Routes
 //===========================
