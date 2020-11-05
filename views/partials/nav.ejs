@@ -3,20 +3,19 @@
 <!-- Update nav partials -->
 <nav class="nav-extended">
     <div class="nav-wrapper blue">
+        <ul>
+            <li><a href="/products" class="brand-logo center">amazing</a></li>
+        </ul>
         <div>
-            <ul class="left">
-                <li><h5>Welcome <%= currentUser.username %></li></h5>
-            </ul>
-            <div>
-                <ul>
-                    <li><a href="/products" class="brand-logo center">amazing</a></li>
-                </ul>
-            </div>
-            <ul id="nav-mobile" class="right">
+            <ul class="right">
                 <% if (currentUser) { %>
+                <div class="brand-logo left">
+                    <li >Welcome <%= currentUser.username %></li>
+                </div>
+                <!-- <li><a href="/products/new">Create a new Product</a></li> -->
                 <li class="nav-item">
                     <form action="/sessions?_method=DELETE" method="POST">
-                    <input type="submit" value="Log Out" class="btn-small" />
+                    <input type="submit" value="Log Out" class="btn-small blue" />
                     </form>
                 </li>
                 <li class="nav-item"><a href="/users/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart</a></li>
