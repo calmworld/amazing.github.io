@@ -33,14 +33,11 @@
                 THIS ITEM IS OUT OF STOCK
             <% } else { %>
                 <form action="/users/<%= currentUser._id %>/products/<%= product._id %>?_method=PATCH" method="POST">
-                    <input id="buy" type="submit" value="BUY / ADD TO CART"/>
+                    <input id="buy" type="submit" value="ADD TO CART"/>
                 </form>
             <% } %> 
         </P>
         <br/>
-        <!-- <form action="/products/<%= product.id %>/?_method=PATCH" method="POST">
-            <input type="submit" value="BUY"/>
-        </form> -->
         <!-- <h4>Created at: <%= product.createdAt %></h4> -->
         <br/>
     <button><a id="home" href="/products">Home</a></button>

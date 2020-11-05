@@ -14,10 +14,14 @@
         <br/>
         <ul>
             <% for(const item of userCart){ %>
-            <li>
-                <h5>Product: <%= item.name %></h5>
-                <h5>$<%= item.price %></h5>
-            </li>
+                <li><h5>Product: <%= item.name %></h5></li>
+                <li><h5>$<%= item.price %></h5></li>
+                <li>
+                <!-- ADD Update/Edit HERE -->
+                    <button id="update">
+                        <a href="/users/userCart/<%= item.id %>/edit">UPDATE</a>
+                    </button>
+                </li>
             <% } %> 
         </ul>
         <br/>

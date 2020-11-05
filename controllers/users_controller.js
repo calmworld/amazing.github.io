@@ -46,11 +46,8 @@ users.post('/', (req, res) => {
 // USER CART rout
 //=================
 users.get('/cart', (req, res, next) => {
-  //  console.log(req.session.currentUser)
   let userCart = []
   User.find().populate('products').exec({username: req.session.username}, (err, user) => {
-    //  console.log(user)
-    //  let userCart = []
     let shoppingCart = req.session.currentUser.shoppingCart
     for (let i = 0; i < shoppingCart.length; i++) {
       console.log("testing user cart rout")
@@ -78,8 +75,6 @@ users.patch('/:userId/products/:productId', (req, res) => {
     Product.findById(req.params.productId, (err, item) => {
       console.log('testing Patch rout')
       //console.log(item)
-      // userCart.push(item)
-      // userCart.save()
       user.shoppingCart.push(req.params.productId)
       user.save()
       //console.log(user)
@@ -91,16 +86,26 @@ users.patch('/:userId/products/:productId', (req, res) => {
     } else {
         res.redirect(`/products/${req.params.productId}`)
     }
-    // res.redirect('/users/cart')
   })
 })
 
+//=================
+// EDIT /cart rout
+//=================
+// users.get('/:id/edit', isAuthenticated, (req, res) => {
+//   Product.findById(req.params.id, (err, foundProduct) => {
+//       res.render('products/edit.ejs', {
+//           product: foundProduct,
+//           urrentUser: req.session.currentUser
+//       });
+//   })
+// })
 
 
 //=================
 // DELETE /cart rout
 //=================
-// users.delete('/cart/:id', (req, res) => {
+// users.delete('/cart/:userId', (req, res) => {
 //   User.findByIdAndUpdate(req.params.id, (err, deletedItem) => {
 //       res.redirect('/users/cart');
 //   })
