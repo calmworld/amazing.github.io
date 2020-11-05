@@ -47,25 +47,29 @@ users.post('/', (req, res) => {
 //=================
 users.get('/cart', (req, res, next) => {
   //console.log(req.session.currentUser)
+  let userCart = []
   User.find().populate('products').exec({username: req.session.username}, (err, user) => {
     //console.log(user)
-    let userCart = []
+    // let userCart = []
     let shoppingCart = req.session.currentUser.shoppingCart
     for (let i = 0; i < shoppingCart.length; i++) {
       console.log("test")
         Product.findById(shoppingCart[i], (err, item) => {
-          console.log(item)
+          //console.log(item)
           userCart.push(item)
+          console.log(userCart)
+          return userCart
         })
-        console.log(userCart)
+        // console.log(userCart)
     }
-    res.render('users/cart.ejs', { currentUser: req.session.currentUser, userCart: userCart, products: Product.find()})
-  })
+  //   res.render('users/cart.ejs', { currentUser: req.session.currentUser, userCart: userCart, products: Product.find()})
+ })
+ res.render('users/cart.ejs', { currentUser: req.session.currentUser, userCart: userCart, products: Product.find()})
 });
 
 
 //=================
-// PATCH ORDER rout
+// PATCH Cart rout
 //=================
 users.patch('/:userId/products/:productId', (req, res) => {
   User.findByIdAndUpdate(req.params.userId, {productId: req.params.productId}, (err, user) => {
@@ -74,13 +78,13 @@ users.patch('/:userId/products/:productId', (req, res) => {
     //user.shoppingCart.push(req.params.productId)
     //user.save()
     //console.log(user)
-    Product.findById(req.params.productId, (err, product) => {
-      //console.log('test')
-      //console.log(product)
-      user.shoppingCart.push(product)
-      user.save()
-      //console.log(user)
-    })
+    // Product.findById(req.params.productId, (err, item) => {
+    //   //console.log('test')
+    //   //console.log(product)
+    //   userCart.push(item)
+    //   userCart.save()
+    //   //console.log(user)
+    // })
   })
   Product.findByIdAndUpdate(req.params.productId, {$inc: {'qty': -1}}, (err) => {
     if (err) {

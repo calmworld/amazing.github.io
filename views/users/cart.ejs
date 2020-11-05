@@ -13,9 +13,9 @@
         <h4><%= currentUser.username %>'s Shopping Cart</h4>
         <br/>
         <ul>
-            <% for(const productId of currentUser.shoppingCart){ %>
+            <% for(const item of userCart){ %>
                         <li>
-                            <h5><%= productId %></h5>
+                            <h5><%= item.name %></h5>
                         </li>
             <% } %> 
         </ul>
