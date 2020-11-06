@@ -27,7 +27,6 @@
         <% } %>
         </p>
         <br/>
-        <h5>In Stock: <%= product.qty %> </h5>
         <P>
             <% if (product.qty <= 0 ) { %>
                 THIS ITEM IS OUT OF STOCK
@@ -38,7 +37,7 @@
             <% } %> 
         </P>
         <br/>
-        <!-- <h4>Created at: <%= product.createdAt %></h4> -->
+        
         <br/>
     <button><a id="home" href="/products">Home</a></button>
     </div>

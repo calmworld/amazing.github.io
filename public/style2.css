@@ -33,6 +33,12 @@ img {
     width: 100%;
     height: auto;
 }
+.cart-img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+}
 .col {
     display: flex;
     /* flex-wrap: wrap; */

@@ -16,7 +16,7 @@ const productSchema = new Schema({
     description:  { type: String, required: true },
     img: {type: String, required: true},
     price: Number,
-    qty: Number,
+    qty: {type: Number, default: 1},
     isReadyToSell: { type: Boolean, default: false }
 })
 

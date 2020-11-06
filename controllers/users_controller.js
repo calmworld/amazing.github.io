@@ -49,7 +49,7 @@ users.get('/new', (req, res) => {
 
 
 //=================
-// CREATE USER rout
+// POST/CREATE USER rout
 //=================
 users.post('/', (req, res) => {
   req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
@@ -80,7 +80,6 @@ users.get('/cart', (req, res, next) => {
       res.render('users/cart.ejs', { currentUser: req.session.currentUser, userCart: items, products: Product.find()})
     })
     console.log(allItems)
-
   })
 });
 
@@ -99,7 +98,7 @@ users.patch('/:userId/products/:productId', (req, res) => {
       //console.log(user)
     })
   })
-  Product.findByIdAndUpdate(req.params.productId, {$inc: {'qty': -1}}, (err) => {
+  Product.findByIdAndUpdate(req.params.productId, {$inc: {'qty': +1}}, (err) => {
     if (err) {
         console.log(err)
     } else {
@@ -110,33 +109,35 @@ users.patch('/:userId/products/:productId', (req, res) => {
 
 
 
-//=================
-// EDIT /cart rout
-//=================
-// users.get('/cart/:userId/edit', isAuthenticated, (req, res) => {
-//   Product.findById(req.params.id, (err, foundProduct) => {
-//       res.render('items/edit.ejs', {
+// //=================
+// // EDIT /cart rout
+// //=================
+// users.get('/cart/:productId/edit', (req, res) => {
+//   User.findById(req.params.productId, (err, foundProduct) => {
+//       res.render('products/edit.ejs', {
 //           product: foundProduct,
-//           urrentUser: req.session.currentUser
+//           currentUser: req.session.currentUser
 //       });
 //   })
 // })
 
 
 
-//=================
-// PUT/UPDATE rout
-//=================
-// users.put('/cart/:userId', isAuthenticated, (req, res) => {
+
+// //======================
+// // PUT/UPDATE /cart rout
+// //======================
+// users.put('/cart/:productId', (req, res) => {
 //   if (req.body.isReadyToSell === 'on') {
 //       req.body.isReadyToSell = true;
 //   } else {
 //       req.body.isReadyToSell = false;
 //   }
-//   Product.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedProduct) => {
-//   res.redirect('/products');
+//   User.findByIdAndUpdate(req.params.productId, req.body, { new: true }, (err, updatedProduct) => {
+//       res.redirect('/users/cart.ejs');
 //   });
 // });
+
 
 
 
@@ -144,16 +145,19 @@ users.patch('/:userId/products/:productId', (req, res) => {
 //=================
 // DELETE /cart rout
 //=================
-users.delete('/cart/:productId', (req, res) => {
-  console.log(req.params.productId)
-  userId = req.session.currentUser
-  User.findByIdAndUpdate(userId, { $pull: {shoppingCart: {"_id":req.params.productId} } })
-  .then(updatedCart => {
-    //console.log(updatedCart)
-      res.redirect('/users/cart');
-  })
-  .catch(err => console.log(err))
-});
+// users.delete('/cart/:productId', (req, res) => {
+//   console.log('DELETING')
+//   console.log(req.params.productId)
+//   userId = req.session.currentUser
+//   User.findByIdAndUpdate(userId, { $pull: {shoppingCart: {"_id":req.params.productId} } })
+//   .then(updatedCart => {
+//     //console.log(updatedCart)
+//       res.redirect('/users/cart');
+//   })
+//   .catch(err => console.log(err))
+// });
+
+
 
 
 //=================
