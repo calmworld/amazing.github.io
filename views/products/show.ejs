@@ -19,30 +19,18 @@
         <br />
         Price $<%= product.price %>
         <br />
-        <p>
-            <% if(product.isReadyToSell === true){ %>
-            PRODUCT IS READY TO Sell!
-            <br />
-            <% } else { %>
-            THIS ITEM HAS TO BE CUSTOM MADE!
-            <br />
-            <% } %>
-        </p>
-        <br />
         <P>
             <% if (product.qty <= 0 ) { %>
             THIS ITEM IS OUT OF STOCK
             <% } else { %>
-                <div class="btn-group" style="width:100%">
-                    <button style="width:33.3%" id="update">
-                        <a href="/products/<%= product.id %>/edit">Customize Product</a>
-                    </button>
-                    <button style="width:33.3%"><form action="/users/<%= currentUser._id %>/products/<%= product._id %>?_method=PATCH" method="POST">
-                        <input id="buy" type="submit" value="ADD TO CART" />
-                    </form></button>
-                    </button style="width:33.3%"><form action="/products/<%= product.id %>?_method=DELETE" method="POST">
-                        <input id="delete" type="submit" value="DELETE" />
-                    </form></button>
+                <div class="btn-group">
+                    <a href="/products/<%= product.id %>/edit" class="btn-small blue">Customize Product</a>
+                    <form action="/users/<%= currentUser._id %>/products/<%= product._id %>?_method=PATCH" method="POST">
+                        <input type="submit" value="ADD TO CART" class="btn-small blue"/>
+                    </form>
+                    <form action="/products/<%= product.id %>?_method=DELETE" method="POST">
+                    <input type="submit" value="DELETE" class="btn-small blue"/>
+                    </form>
                 </div>
         <% } %>
         </P>
