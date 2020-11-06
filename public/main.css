@@ -48,10 +48,6 @@ img {
     flex-wrap: wrap;
     position: relative;
 }
-/* .title {
-    font-family: 'Krona One', sans-serif;
-    padding-bottom: 10px;
-} */
 a:link {
     text-decoration: none;
     color:black;
@@ -88,22 +84,23 @@ ul {
 and (min-device-width: 375px) 
 and (max-device-width: 812px) 
 and (-webkit-min-device-pixel-ratio: 3) { 
-    body {
-        background-color: black;
-      }
     #create {
         width: 50%
-      }
+    }
+    .welcome {
+        display: flex;
+        font-size: 17px;
+    }
 }
 /* Portrait and Landscape */
 @media screen 
 and (device-width: 360px) 
 and (device-height: 640px) 
 and (-webkit-device-pixel-ratio: 4) {
-    body {
-        background-image: url("https://wallpaperaccess.com/full/207789.jpg");
-        background-color: black;
-      }
+    .welcome {
+        display: flex;
+        font-size: 5px;
+    }
 }
 
 

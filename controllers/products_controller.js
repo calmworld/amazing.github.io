@@ -110,7 +110,7 @@ router.patch('/:id', (req, res) => {
 //=================
 // SHOW rout
 //=================
-router.get('/:id', isAuthenticated, (req, res) => {
+router.get('/:id', (req, res) => {
     //console.log(req.session.currentUser)
     Product.findById(req.params.id, (err, foundProduct) => {
         //console.log(req.session.currentUser.shoppingCart)

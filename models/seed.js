@@ -48,12 +48,12 @@ productSeed = [
         "isReadyToSell": true
     },
     {
-        "name": "Dress Code",
+        "name": "To Be or Not To Be",
         "description": "Handmade. Materials: Cotton, Ink, Tender Love",
-        "img": "https://i.etsystatic.com/17975591/r/il/59c094/1957880670/il_1140xN.1957880670_gajc.jpg",
-        "price": 22.79,
-        "qty": 1,
-        "isReadyToSell": true
+        "img": "https://i.etsystatic.com/24034761/r/il/b8a04b/2634446974/il_1588xN.2634446974_63cy.jpg",
+        "price": 69.99,
+        "qty": 0,
+        "isReadyToSell": false
     },
     {
         "name": "HTML Tag",
@@ -62,14 +62,6 @@ productSeed = [
         "price": 42.29,
         "qty": 1,
         "isReadyToSell": true
-    },
-    {
-        "name": "To Be or Not To Be",
-        "description": "Handmade. Materials: Cotton, Ink, Tender Love",
-        "img": "https://i.etsystatic.com/24034761/r/il/b8a04b/2634446974/il_1588xN.2634446974_63cy.jpg",
-        "price": 69.99,
-        "qty": 0,
-        "isReadyToSell": false
     },
     {
         "name": "Incomplete Data",
@@ -104,14 +96,6 @@ productSeed = [
         "isReadyToSell": true
     },
     {
-        "name": "How To Debug",
-        "description": "Handmade. Materials: Cotton, Ink, Tender Love",
-        "img": "https://i.etsystatic.com/22367738/r/il/2deb25/2355308876/il_1588xN.2355308876_dipc.jpg",
-        "price": 35.99,
-        "qty": 1,
-        "isReadyToSell": true
-    },
-    {
         "name": "Zero One",
         "description": "Handmade. Materials: Cotton, Ink, Tender Love",
         "img": "https://i.etsystatic.com/16068647/r/il/8dc07c/2457508541/il_1140xN.2457508541_ltlf.jpg",
@@ -132,14 +116,6 @@ productSeed = [
         "description": "Handmade. Materials: Cotton, Ink, Tender Love",
         "img": "https://i.etsystatic.com/16068647/r/il/d40071/2409383182/il_1140xN.2409383182_1g4o.jpg",
         "price": 30.29,
-        "qty": 1,
-        "isReadyToSell": true
-    },
-    {
-        "name": "Development Process",
-        "description": "Handmade. Materials: Cotton, Ink, Tender Love",
-        "img": "https://i.etsystatic.com/22367738/r/il/f7d77c/2402608591/il_1140xN.2402608591_sky5.jpg",
-        "price": 25.99,
         "qty": 1,
         "isReadyToSell": true
     }

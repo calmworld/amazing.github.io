@@ -37,7 +37,7 @@ img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 75%;
 }
 .cart-img {
     border: 1px solid #ddd;
@@ -100,9 +100,6 @@ ul {
 and (min-device-width: 375px) 
 and (max-device-width: 812px) 
 and (-webkit-min-device-pixel-ratio: 3) { 
-    body {
-        background-color: black;
-      }
     #create {
         width: 50%
       }
@@ -112,10 +109,11 @@ and (-webkit-min-device-pixel-ratio: 3) {
 and (device-width: 360px) 
 and (device-height: 640px) 
 and (-webkit-device-pixel-ratio: 4) {
-    body {
-        background-image: url("https://wallpaperaccess.com/full/207789.jpg");
-        background-color: black;
-      }
+    .logo{
+        display: flex;
+        /* justify-content: right; */
+        align-items: right;
+    }
 }
 
 
