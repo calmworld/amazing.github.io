@@ -17,3 +17,7 @@ User features:
 - Create Product
 - Delete Product
 
+
+- Link to Application on Heroku
+https://radiant-lowlands-77744.herokuapp.com/products
+- Please note that the app is finiky on heroku regarding the user shopping cart. But it works perfectly fine on localhost.
