@@ -8,12 +8,12 @@
         <%- include ('../partials/nav.ejs') %>
       </nav>
     <!-- <div id="container"> -->
-      <h4>Customize Your Product</h4>
+      <h3>Customize This Product</h3>
       <form action="/products/<%= product.id %>?_method=PUT" method="POST">
         <label for="description">Tell Us About This Order</label>
         <input type="text" name="description" id="description" value="<%= product.description %>"/>
         <br/>
-        <label for="img">Upload Your Own Tshirt design</label>
+        <label for="img">Upload your own design, or keep this one</label>
         <input type="text" name="img" id="img" value="<%= product.img %>"/>
         <br/>
         <label for="name">Give It A Name</label>
@@ -22,7 +22,7 @@
         <label for="qty">How Many Tees Would You Like To Order?</label>
         <input type="number" name="qty" id="qty" value="<%= product.qty %>"/>
         <br/>
-        <input type="submit" value="Update Order">
+        <input type="submit" value="Update Product">
       </form>
       <div>
         <%- include ('../partials/footer.ejs') %>

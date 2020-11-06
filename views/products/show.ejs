@@ -33,23 +33,24 @@
             <% if (product.qty <= 0 ) { %>
             THIS ITEM IS OUT OF STOCK
             <% } else { %>
-            <button id="update">
-                <a href="/products/<%= product.id %>/edit">Customize Product</a>
-            </button>
-            <br />
-        <form action="/users/<%= currentUser._id %>/products/<%= product._id %>?_method=PATCH" method="POST">
-            <input id="buy" type="submit" value="ADD TO CART" />
-        </form>
-        <br />
-        <form action="/products/<%= product.id %>?_method=DELETE" method="POST">
-            <input id="delete" type="submit" value="DELETE" />
-        </form>
+                <div class="btn-group" style="width:100%">
+                    <button style="width:33.3%" id="update">
+                        <a href="/products/<%= product.id %>/edit">Customize Product</a>
+                    </button>
+                    <button style="width:33.3%"><form action="/users/<%= currentUser._id %>/products/<%= product._id %>?_method=PATCH" method="POST">
+                        <input id="buy" type="submit" value="ADD TO CART" />
+                    </form></button>
+                    </button style="width:33.3%"><form action="/products/<%= product.id %>?_method=DELETE" method="POST">
+                        <input id="delete" type="submit" value="DELETE" />
+                    </form></button>
+                </div>
         <% } %>
         </P>
-        <br />
+        <br/>
+        <%- include ('../partials/footer.ejs') %>
     </div>
     <div>
-        <%- include ('../partials/footer.ejs') %>
+        
     </div>
 </body>
 </html>

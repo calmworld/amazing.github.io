@@ -8,25 +8,19 @@
       <%- include ('../partials/nav.ejs') %>
     </nav>
     <!-- <div id="container"> -->
-      <h1>Create a New Product</h1>
+      <h3>Customize a New Tshirt</h3>
       <form action="/products", method="POST">
-        Name: 
-        <input type="text" name="name" />
-        <br/>
-        Description: 
+        Tell Us About This Order
         <input type="text" name="description" />
         <br/>
-        Image: 
+        Upload Your Own Tshirt design 
         <input type="text" name="img" />
         <br/>
-        Price: 
-        <input type="number" name="price" id="price" />
+        Give It A Name
+        <input type="text" name="name" />
         <br/>
-        Quantity: 
+        How Many Tees Would You Like To Order? 
         <input type="number" name="qty" id="qty" />
-        <br/>
-        Ready To Sell:
-        <input type="checkbox" name="isReadyToSell" />
         <br/>
         <input type="submit" value="Create Product" />
         <br/>

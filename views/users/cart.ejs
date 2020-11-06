@@ -16,15 +16,14 @@
                 <li><h5><%= item.name %></h5></li>
                 <li><h5>$<%= item.price %></h5></li>
                 <img class="cart-img" src="<%= item.img %>"/>
-                <li><h5>Count:<%= item.qty %></h5></li>
+                <li><h5>Quantity:<%= item.qty %></h5></li>
             <% } %> 
         </ul>
         <br/>
-        <button><a id="home" href="/products">Home</a></button>
-    </div>
-    <div>
+        <div>
         <%- include ('../partials/footer.ejs') %>
-      </div>
+        </div>
+    </div>
 </body>
 </html>
 
