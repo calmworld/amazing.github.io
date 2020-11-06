@@ -108,58 +108,6 @@ users.patch('/:userId/products/:productId', (req, res) => {
 })
 
 
-
-// //=================
-// // EDIT /cart rout
-// //=================
-// users.get('/cart/:productId/edit', (req, res) => {
-//   User.findById(req.params.productId, (err, foundProduct) => {
-//       res.render('products/edit.ejs', {
-//           product: foundProduct,
-//           currentUser: req.session.currentUser
-//       });
-//   })
-// })
-
-
-
-
-// //======================
-// // PUT/UPDATE /cart rout
-// //======================
-// users.put('/cart/:productId', (req, res) => {
-//   if (req.body.isReadyToSell === 'on') {
-//       req.body.isReadyToSell = true;
-//   } else {
-//       req.body.isReadyToSell = false;
-//   }
-//   User.findByIdAndUpdate(req.params.productId, req.body, { new: true }, (err, updatedProduct) => {
-//       res.redirect('/users/cart.ejs');
-//   });
-// });
-
-
-
-
-
-//=================
-// DELETE /cart rout
-//=================
-// users.delete('/cart/:productId', (req, res) => {
-//   console.log('DELETING')
-//   console.log(req.params.productId)
-//   userId = req.session.currentUser
-//   User.findByIdAndUpdate(userId, { $pull: {shoppingCart: {"_id":req.params.productId} } })
-//   .then(updatedCart => {
-//     //console.log(updatedCart)
-//       res.redirect('/users/cart');
-//   })
-//   .catch(err => console.log(err))
-// });
-
-
-
-
 //=================
 // EXPORTS
 //=================

@@ -1,45 +1,55 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <%- include ('../partials/head2.ejs') %>
-    </head>
-    <body>
-        <nav>
-            <%- include ('../partials/nav.ejs') %>
-        </nav>
-        <div id="container">
+
+<head>
+    <%- include ('../partials/head2.ejs') %>
+</head>
+
+<body>
+    <nav>
+        <%- include ('../partials/nav.ejs') %>
+    </nav>
+    <div id="container">
         <!-- <h2>Product Show Product</h2> -->
         <h4><%= product.name %></h4>
-        <br/>
+        <br />
         <p>"<%=product.description; %>"</p>
-        <br/>
+        <br />
         <img src="<%= product.img %>" />
-        <br/>
+        <br />
         Price $<%= product.price %>
-        <br/>
+        <br />
         <p>
-        <% if(product.isReadyToSell === true){ %>
+            <% if(product.isReadyToSell === true){ %>
             PRODUCT IS READY TO Sell!
-            <br/>
-        <% } else { %>
+            <br />
+            <% } else { %>
             THIS ITEM HAS TO BE CUSTOM MADE!
-            <br/>
-        <% } %>
+            <br />
+            <% } %>
         </p>
-        <br/>
+        <br />
         <P>
             <% if (product.qty <= 0 ) { %>
-                THIS ITEM IS OUT OF STOCK
+            THIS ITEM IS OUT OF STOCK
             <% } else { %>
-                <form action="/users/<%= currentUser._id %>/products/<%= product._id %>?_method=PATCH" method="POST">
-                    <input id="buy" type="submit" value="ADD TO CART"/>
-                </form>
-            <% } %> 
+            <button id="update">
+                <a href="/products/<%= product.id %>/edit">Customize Product</a>
+            </button>
+            <br />
+        <form action="/users/<%= currentUser._id %>/products/<%= product._id %>?_method=PATCH" method="POST">
+            <input id="buy" type="submit" value="ADD TO CART" />
+        </form>
+        <br />
+        <form action="/products/<%= product.id %>?_method=DELETE" method="POST">
+            <input id="delete" type="submit" value="DELETE" />
+        </form>
+        <% } %>
         </P>
-        <br/>
-        
-        <br/>
-    <button><a id="home" href="/products">Home</a></button>
+        <br />
     </div>
-    </body>
+    <div>
+        <%- include ('../partials/footer.ejs') %>
+    </div>
+</body>
 </html>

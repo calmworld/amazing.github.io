@@ -8,14 +8,25 @@
         <%- include ('../partials/nav.ejs') %>
       </nav>
     <!-- <div id="container"> -->
-      <h4>Edit Cart Product</h4>
+      <h4>Customize Your Product</h4>
       <form action="/products/<%= product.id %>?_method=PUT" method="POST">
-        <label for="qty">Quantity</label>
+        <label for="description">Tell Us About This Order</label>
+        <input type="text" name="description" id="description" value="<%= product.description %>"/>
+        <br/>
+        <label for="img">Upload Your Own Tshirt design</label>
+        <input type="text" name="img" id="img" value="<%= product.img %>"/>
+        <br/>
+        <label for="name">Give It A Name</label>
+        <input type="text" name="name" id="name" value="<%= product.name %>"/>
+        <br/>
+        <label for="qty">How Many Tees Would You Like To Order?</label>
         <input type="number" name="qty" id="qty" value="<%= product.qty %>"/>
         <br/>
-        <input type="submit" value="Update Quantity">
+        <input type="submit" value="Update Order">
       </form>
-      <button><a id="home" href="/products">Home</a></button>
+      <div>
+        <%- include ('../partials/footer.ejs') %>
+      </div>
     <!-- </div> -->
     </body>
 </html>

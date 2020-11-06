@@ -123,33 +123,33 @@ router.get('/:id', isAuthenticated, (req, res) => {
 
 
 
-//=================
+// =================
 // EDIT rout
-//=================
-// router.get('/:id/edit', isAuthenticated, (req, res) => {
-//     Product.findById(req.params.id, (err, foundProduct) => {
-//         res.render('products/edit.ejs', {
-//             product: foundProduct,
-//             currentUser: req.session.currentUser
-//         });
-//     })
-// })
+// =================
+router.get('/:id/edit', isAuthenticated, (req, res) => {
+    Product.findById(req.params.id, (err, foundProduct) => {
+        res.render('products/edit.ejs', {
+            product: foundProduct,
+            currentUser: req.session.currentUser
+        });
+    })
+})
 
 
 
-//=================
+// =================
 // PUT/UPDATE rout
-//=================
-// router.put('/:id', isAuthenticated, (req, res) => {
-//     if (req.body.isReadyToSell === 'on') {
-//         req.body.isReadyToSell = true;
-//     } else {
-//         req.body.isReadyToSell = false;
-//     }
-//     Product.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedProduct) => {
-//         res.redirect('/products');
-//     });
-// });
+// =================
+router.put('/:id', isAuthenticated, (req, res) => {
+    if (req.body.isReadyToSell === 'on') {
+        req.body.isReadyToSell = true;
+    } else {
+        req.body.isReadyToSell = false;
+    }
+    Product.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedProduct) => {
+        res.redirect('/products');
+    });
+});
 
 
 //=================

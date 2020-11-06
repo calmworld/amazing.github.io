@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <%- include ('../partials/head2.ejs') %>
+    <%- include ('../partials/head.ejs') %>
 </head>
 
 <body>
@@ -15,19 +15,17 @@
             <% for(const item of userCart){ %>
                 <li><h5><%= item.name %></h5></li>
                 <li><h5>$<%= item.price %></h5></li>
-                <li><img class="cart-img" src="<%= item.img %>" /></li>
-                <li><h5>count: <%= item.qty %> </h5></li>
-            <br/>
-                <button><li><a href="/products/<%= item.id %>/edit">Update</a></li></button>
-            <br/>
-            <!-- <li><form action="/users/cart/<%= item.id %>?_method=DELETE" method="POST">
-                <input id="delete" type="submit" value="DELETE" />
-              </form></li> -->
+                <img class="cart-img" src="<%= item.img %>"/>
+                <li><h5>Count:<%= item.qty %></h5></li>
             <% } %> 
         </ul>
         <br/>
         <button><a id="home" href="/products">Home</a></button>
     </div>
+    <div>
+        <%- include ('../partials/footer.ejs') %>
+      </div>
 </body>
 </html>
+
 
