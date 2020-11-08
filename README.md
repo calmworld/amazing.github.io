@@ -9,9 +9,9 @@ E-Commerce project using Nodejs, Express, EJS and Mongoose.
 
 User features:
 
-- View Products Without Login
+- Users Must Login to view products
 - Log-In 
-- View Products
+- Log-Out
 - Add Product to Cart
 - Customize Product
 - Create Product
