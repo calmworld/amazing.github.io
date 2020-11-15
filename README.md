@@ -8,12 +8,7 @@ E-Commerce project using Nodejs, Express, EJS and Mongoose.
 
 
 User features:
-
-<<<<<<< HEAD
-- Users must login ti view products
-=======
 - USERS MUST LOGIN to view products
->>>>>>> f25e3c7bb1ae542ad81082bbbb031679d4045a09
 - Log-In 
 - Log-Out
 - Add Product to Cart
