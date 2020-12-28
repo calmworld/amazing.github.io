@@ -90,7 +90,7 @@ app.use('/sessions', sessionsController)
 //===========================
 // localhost:3000  - this will reroute to `products
 app.get('/', (req, res) => {
-    res.redirect('/users/new')
+    res.redirect('/products')
 })
 
 // // 404 errors!
